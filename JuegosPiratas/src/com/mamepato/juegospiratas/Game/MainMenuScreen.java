@@ -11,6 +11,9 @@ import com.mamepato.juegospiratas.framework.implementation.AndroidGame;
 
 public class MainMenuScreen extends Screen
 {
+	AndroidGame g;
+	boolean soundEnabled;
+
 	Button playButton;
 	Button resumeButton;
 	Button scoreButton;
@@ -21,23 +24,30 @@ public class MainMenuScreen extends Screen
 	public MainMenuScreen(Game game)
 	{
 		super(game);
-		AndroidGame g = ((AndroidGame) game);
-		
+		g = ((AndroidGame) game);
+
 		new Assets(g);
-		
 		g.setContentView(R.layout.activity_main_menu);
+
+		Configuration.load(g.getFileIO());
+		soundEnabled = Configuration.soundEnabled;
 
 		playButton = (Button) g.findViewById(R.id.playButton);
 		resumeButton = (Button) g.findViewById(R.id.resumeButton);
 		scoreButton = (Button) g.findViewById(R.id.scoreButton);
 		helpButton = (Button) g.findViewById(R.id.helpButton);
-
 		audioButton = (ToggleButton) g.findViewById(R.id.audioToggleButton);
+
+		if (soundEnabled == true)
+			audioButton.setChecked(true);
+		else if (soundEnabled == false)
+			audioButton.setChecked(false);
 
 		PlayClick(playButton);
 		ResumeClick(resumeButton);
 		HighScoreClick(scoreButton);
 		HelpClick(helpButton);
+		AudioClick(audioButton);
 	}
 
 	@Override
@@ -58,23 +68,14 @@ public class MainMenuScreen extends Screen
 	@Override
 	public void resume()
 	{
+		Configuration.soundEnabled = this.soundEnabled;
+		Configuration.save(g.getFileIO());
 	}
 
 	@Override
 	public void dispose()
 	{
 	}
-
-	// button2.setOnClickListener(new OnClickListener() {
-	// public void onClick(View v)
-	// {
-	// startActivity(new Intent(getApplicationContext(),
-	// ActivityTwo.class));
-	// overridePendingTransition(R.anim.slide_in_left,
-	// R.anim.slide_out_left);
-	// finish();
-	// }
-	// });
 
 	private void PlayClick(Button playButton)
 	{
@@ -109,6 +110,14 @@ public class MainMenuScreen extends Screen
 				game.setScreen(new HelpScreen1(game));
 			}
 		});
+	}
+
+	private void AudioClick(ToggleButton audioButton)
+	{
+		if (soundEnabled)
+			soundEnabled = false;
+		else
+			soundEnabled = true;
 	}
 
 }

@@ -15,6 +15,9 @@
     <string name="top5_high_scores">Top 5 high scores!</string>
     <string name="title_activity_high_scores">HighScores</string>
     <string name="title_activity_game_screen">GameScreen</string>
-
+    <string name="help1_1">       Forma cadenas de 3 o más Andys del mismo color para ganar puntos</string>
+    <string name="help1_2">Estas cadenas pueden ser horizontales o verticales</string>
+    <string name="help2_1">Trata de hacer tantas líneas como puedas. No hay límite de tiempo</string>
+    <string name="help2_2">               Trata de llenar la barra de puntos para pasar al siguiente nivel</string>
 
 </resources>

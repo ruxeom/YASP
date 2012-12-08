@@ -15,6 +15,7 @@ import com.mamepato.juegospiratas.framework.implementation.AndroidSound;
 
 public class Assets
 {
+	public static Pixmap logo;
 	public static Pixmap backGround;
 	public static Pixmap blueAndy;
 	public static Pixmap greenAndy;
@@ -23,31 +24,33 @@ public class Assets
 	public static Pixmap yellowAndy;
 	public static Sound breakAndroidSound;
 
-	public Assets(AndroidGame game) {
+	public Assets(AndroidGame game)
+	{
 		Resources r = game.getResources();
 		Bitmap b = BitmapFactory.decodeResource(r, R.drawable.blue_andy);
-		int scale = game.getGraphics().getWidth()/10;
-		
-		
+		int scale = game.getGraphics().getWidth() / 10;
+
 		b = Bitmap.createScaledBitmap(b, scale, scale, false);
-		backGround = new AndroidPixmap(
-				BitmapFactory.decodeResource(r, R.drawable.green_background), PixmapFormat.RGB565);
-		blueAndy = new AndroidPixmap(
-				Bitmap.createScaledBitmap(BitmapFactory.decodeResource(r, R.drawable.blue_andy), 
-						scale, scale, false), PixmapFormat.ARGB4444);
-		greenAndy = new AndroidPixmap(
-				Bitmap.createScaledBitmap(BitmapFactory.decodeResource(r, R.drawable.green_andy), 
-						scale, scale, false), PixmapFormat.ARGB4444);
-		orangeAndy = new AndroidPixmap(
-				Bitmap.createScaledBitmap(BitmapFactory.decodeResource(r, R.drawable.orange_andy), 
-						scale, scale, false), PixmapFormat.ARGB4444);
-		pinkAndy = new AndroidPixmap(
-				Bitmap.createScaledBitmap(BitmapFactory.decodeResource(r, R.drawable.pink_andy), 
-						scale, scale, false), PixmapFormat.ARGB4444);
-		yellowAndy = new AndroidPixmap(
-				Bitmap.createScaledBitmap(BitmapFactory.decodeResource(r, R.drawable.yellow_andy), 
-						scale, scale, false), PixmapFormat.ARGB4444);
-		breakAndroidSound = new AndroidSound(
-				new SoundPool(20, AudioManager.STREAM_MUSIC, 0), R.raw.bomb);
+		logo = new AndroidPixmap(BitmapFactory.decodeResource(r,
+				R.drawable.logo), PixmapFormat.ARGB4444);
+		backGround = new AndroidPixmap(BitmapFactory.decodeResource(r,
+				R.drawable.green_background), PixmapFormat.RGB565);
+		blueAndy = new AndroidPixmap(Bitmap.createScaledBitmap(
+				BitmapFactory.decodeResource(r, R.drawable.blue_andy), scale,
+				scale, false), PixmapFormat.ARGB4444);
+		greenAndy = new AndroidPixmap(Bitmap.createScaledBitmap(
+				BitmapFactory.decodeResource(r, R.drawable.green_andy), scale,
+				scale, false), PixmapFormat.ARGB4444);
+		orangeAndy = new AndroidPixmap(Bitmap.createScaledBitmap(
+				BitmapFactory.decodeResource(r, R.drawable.orange_andy), scale,
+				scale, false), PixmapFormat.ARGB4444);
+		pinkAndy = new AndroidPixmap(Bitmap.createScaledBitmap(
+				BitmapFactory.decodeResource(r, R.drawable.pink_andy), scale,
+				scale, false), PixmapFormat.ARGB4444);
+		yellowAndy = new AndroidPixmap(Bitmap.createScaledBitmap(
+				BitmapFactory.decodeResource(r, R.drawable.yellow_andy), scale,
+				scale, false), PixmapFormat.ARGB4444);
+		breakAndroidSound = new AndroidSound(new SoundPool(20,
+				AudioManager.STREAM_MUSIC, 0), R.raw.bomb);
 	}
 }

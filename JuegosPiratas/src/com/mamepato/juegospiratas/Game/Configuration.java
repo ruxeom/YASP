@@ -1,8 +1,10 @@
 package com.mamepato.juegospiratas.Game;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 
 import android.util.Log;
 
@@ -10,9 +12,9 @@ import com.mamepato.juegospiratas.framework.FileIO;
 
 public class Configuration
 {
-	public static boolean soundEnabled = true;
+	public static boolean soundEnabled;
 	public static int currentScore = 5;
-	public static String[] highScores = new String[] { "", "", "", "", "" };
+	public static int[] highScores = new int[5];
 	public static int[][] gameGrid;
 
 	static String var[] = new String[5];
@@ -93,7 +95,7 @@ public class Configuration
 			String[] s = a[1].split(",");
 			for (int i = 0; i < 5; i++)
 			{
-				highScores[i] = s[i];
+				highScores[i] = Integer.parseInt(s[i]);
 			}
 		}
 		catch (NumberFormatException e)
@@ -109,9 +111,21 @@ public class Configuration
 
 	public static void save(FileIO files)
 	{
+		BufferedWriter out = null;
 		try
 		{
-			// save scores and game n' shit
+			out = new BufferedWriter(new OutputStreamWriter(
+					files.writeAsset("Config.yasp")));
+			out.write("Sound:" + Boolean.toString(soundEnabled));
+			out.write("\n");
+			out.write("CurrentScore:" + Integer.toString(currentScore));
+			out.write("\n");
+			out.write("HighScores:");
+			for (int i = 0; i < 5; i++)
+			{
+				out.write(highScores[i] + ",");
+			}
+			// GRID?
 		}
 		catch (Exception e)
 		{

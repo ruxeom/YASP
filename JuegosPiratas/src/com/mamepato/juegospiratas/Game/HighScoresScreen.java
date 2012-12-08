@@ -24,8 +24,7 @@ public class HighScoresScreen extends Screen
 		textViewHighScores = (TextView) g.findViewById(R.id.textView);
 		for (int i = 0; i < Configuration.highScores.length; i++)
 		{
-			scores += (i + 1) + ")  " + Configuration.highScores[i].toString()
-					+ "\n";
+			scores += (i + 1) + ")  " + Configuration.highScores[i] + "\n";
 		}
 		textViewHighScores.setText(scores);
 		backButton = (Button) g.findViewById(R.id.buttonBack);

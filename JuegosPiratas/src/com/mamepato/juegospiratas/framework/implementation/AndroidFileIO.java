@@ -39,4 +39,9 @@ public class AndroidFileIO implements FileIO
 		return new FileOutputStream(externalStoragePath + fileName);
 	}
 
+	public OutputStream writeAsset(String fileName) throws IOException
+	{
+		return new FileOutputStream(externalStoragePath + fileName);
+	}
+
 }
