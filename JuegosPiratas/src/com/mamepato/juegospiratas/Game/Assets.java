@@ -27,13 +27,13 @@ public class Assets {
 		backGround = new AndroidPixmap(
 				BitmapFactory.decodeResource(r, R.drawable.green_background), PixmapFormat.RGB565);
 		blueAndy = new AndroidPixmap(
-				BitmapFactory.decodeResource(r, R.drawable.blue_andy), PixmapFormat.RGB565);
+				BitmapFactory.decodeResource(r, R.drawable.blue_andy), PixmapFormat.ARGB4444);
 		greenAndy = new AndroidPixmap(
-				BitmapFactory.decodeResource(r, R.drawable.green_andy), PixmapFormat.RGB565);
+				BitmapFactory.decodeResource(r, R.drawable.green_andy), PixmapFormat.ARGB4444);
 		orangeAndy = new AndroidPixmap(
-				BitmapFactory.decodeResource(r, R.drawable.orange_andy), PixmapFormat.RGB565);
+				BitmapFactory.decodeResource(r, R.drawable.orange_andy), PixmapFormat.ARGB4444);
 		pinkAndy = new AndroidPixmap(
-				BitmapFactory.decodeResource(r, R.drawable.pink_andy), PixmapFormat.RGB565);
+				BitmapFactory.decodeResource(r, R.drawable.pink_andy), PixmapFormat.ARGB4444);
 		yellowAndy = new AndroidPixmap(
 				BitmapFactory.decodeResource(r, R.drawable.yellow_andy), PixmapFormat.RGB565);
 		breakAndroidSound = new AndroidSound(
