@@ -13,7 +13,8 @@ import com.mamepato.juegospiratas.framework.implementation.AndroidGame;
 import com.mamepato.juegospiratas.framework.implementation.AndroidPixmap;
 import com.mamepato.juegospiratas.framework.implementation.AndroidSound;
 
-public class Assets {
+public class Assets
+{
 	public static Pixmap backGround;
 	public static Pixmap blueAndy;
 	public static Pixmap greenAndy;
@@ -21,6 +22,7 @@ public class Assets {
 	public static Pixmap pinkAndy;
 	public static Pixmap yellowAndy;
 	public static Sound breakAndroidSound;
+<<<<<<< HEAD
 	
 	public Assets(AndroidGame game) {
 		Resources r = game.getResources();
@@ -38,5 +40,12 @@ public class Assets {
 				BitmapFactory.decodeResource(r, R.drawable.yellow_andy), PixmapFormat.RGB565);
 		breakAndroidSound = new AndroidSound(
 				new SoundPool(20, AudioManager.STREAM_MUSIC, 0), R.raw.bomb);
+=======
+
+	public Assets()
+	{
+		// backGround = new AndroidPixmap(BitmapFactory.decodeResource(
+		// getResources(), id), PixmapFormat.RGB565);
+>>>>>>> Configuration class
 	}
 }
