@@ -13,7 +13,8 @@ import com.mamepato.juegospiratas.framework.implementation.AndroidGame;
 import com.mamepato.juegospiratas.framework.implementation.AndroidPixmap;
 import com.mamepato.juegospiratas.framework.implementation.AndroidSound;
 
-public class Assets {
+public class Assets
+{
 	public static Pixmap backGround;
 	public static Pixmap blueAndy;
 	public static Pixmap greenAndy;

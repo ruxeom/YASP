@@ -12,7 +12,16 @@ public class YASPGame extends AndroidGame
 	public void onCreate(Bundle instance)
 	{
 		super.onCreate(instance);
-		Log.v("", "funciona   gente");
+		Log.v("", "WIIII: " + Configuration.currentScore);
+		Configuration.load(getFileIO());
+
+		if (Configuration.soundEnabled)
+			Log.v("", "* Audio: true");
+		else
+			Log.v("", "* Audio: false");
+		Log.v("", "* Current score: " + Configuration.currentScore);
+		for (int i = 0; i < Configuration.highScores.length; i++)
+			Log.v("", "" + Configuration.highScores[i]);
 	}
 
 	@Override
