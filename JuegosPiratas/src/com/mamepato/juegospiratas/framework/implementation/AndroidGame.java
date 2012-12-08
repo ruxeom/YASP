@@ -54,7 +54,7 @@ public class AndroidGame extends Activity implements Game
 		input = new AndroidInput(this, renderView, scaleX, scaleY);
 
 		screen = getStartScreen();
-		// setContentView(renderView);
+		setContentView(renderView);
 
 		PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
 		wakeLock = pm.newWakeLock(PowerManager.FULL_WAKE_LOCK, "Game Lock");
