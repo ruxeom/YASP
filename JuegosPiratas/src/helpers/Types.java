@@ -6,5 +6,6 @@ public enum Types
 	B,
 	C,
 	D,
-	E
+	E,
+	EMPTY
 }

@@ -1,6 +1,8 @@
 package com.mamepato.juegospiratas.Game;
 
 import java.util.*;
+
+import android.util.Pair;
 import helpers.Types;
 
 public class Grid
@@ -8,7 +10,7 @@ public class Grid
     private int side;
     private Types[][] grid;
     private int rows;
-    private int columns;
+    private int columns;    
     
     public Grid(int rows, int columns) {
         this.rows = rows;
@@ -71,6 +73,61 @@ public class Grid
             }
         }
     }
+    
+    public int breakPieces(int row, int col, ArrayList<Pair<Integer, Integer>>affectedCells) {
+    	int broken = 0;
+    	
+    	Types type = grid[row][col];
+    	
+    	for(int i = row+1; i < row + 3; i++) {
+    		if(i >= rows)
+    			break;
+    		if(grid[i][col] == type) {
+    			grid[i][col] = Types.EMPTY;
+    			broken++;
+    			affectedCells.add(new Pair<Integer, Integer>(i, col));
+    		}
+    		else
+    			break;
+    	}
+    	for(int i = row-1; i > row - 3; i--) {
+    		if(i < 0)
+    			break;
+    		if(grid[i][col] == type){
+    			grid[i][col] = Types.EMPTY;
+    			broken++;
+    			affectedCells.add(new Pair<Integer, Integer>(i, col));
+    		}
+    		else
+    			break;
+    	}    	
+    	//horizontal
+    	for(int j = col+1; j < col + 3; j++) {
+    		if(j >= columns)
+    			break;
+    		if(grid[row][j] == type) {
+    			grid[row][j] = Types.EMPTY;
+    			broken++;
+    			affectedCells.add(new Pair<Integer, Integer>(row, j));
+    		}
+    		else
+    			break;
+    	}
+    	for(int j = col - 1; j > col - 3; j--) {
+    		if(j < 0)
+    			break;
+    		if(grid[row][j] == type) {
+    			grid[row][j] = Types.EMPTY;
+    			broken++;
+    			affectedCells.add(new Pair<Integer, Integer>(row, j));
+    		}
+    		else
+    			break;
+    	}
+    	
+		return broken;
+    }
+    
     public boolean gridHasPossibleMoves() {
         for (int row = 0; row < side; row++) {
             for (int col = 0; col < side; col++)
@@ -146,6 +203,53 @@ public class Grid
         
         return false;
     }
+    
+    public boolean hasTrio(int row, int col) {
+    	Types type = grid[row][col];
+    	//vertical
+    	int trio = 1;
+    	for(int i = row+1; i < row + 3; i++) {
+    		if(i >= rows)
+    			break;
+    		if(grid[i][col] == type)
+    			trio++;
+    		else
+    			break;
+    	}
+    	for(int i = row-1; i > row - 3; i--) {
+    		if(i < 0)
+    			break;
+    		if(grid[i][col] == type)
+    			trio++;
+    		else
+    			break;
+    	}
+    	if(trio >= 3)
+    		return true;
+    	
+    	//horizontal
+    	trio = 1;
+    	for(int j = col+1; j < col + 3; j++) {
+    		if(j >= columns)
+    			break;
+    		if(grid[row][j] == type)
+    			trio++;
+    		else
+    			break;
+    	}
+    	for(int j = col - 1; j > col - 3; j--) {
+    		if(j < 0)
+    			break;
+    		if(grid[row][j] == type)
+    			trio++;
+    		else
+    			break;
+    	}
+    	if(trio >= 3)
+    		return true;
+    	
+    	return false;
+    }
 
     public int piecesInArea(int row, int column, int width, int height, Types value) {
         int amount = 0;
@@ -168,5 +272,20 @@ public class Grid
     
     public Types getValue(int row, int column) {
     	return grid[row][column];
+    }
+    
+    public void setValue(int row, int column, Types value) {
+    	grid[row][column] = value;
+    }
+    
+    public Grid clone() {
+    	Grid g = new Grid(rows, columns);
+    	g.columns = columns;
+    	g.rows = rows;
+    	g.side = side;
+    	for(int row = 0; row < rows; row++)
+    		for(int col = 0; col < columns; col++)
+    			g.grid[row][col] = this.grid[row][col];
+    	return g;
     }
 }
