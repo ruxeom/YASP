@@ -11,17 +11,20 @@ public class GameScreen extends Screen
 	{
 		super(game);
 		AndroidGame g = ((AndroidGame) game);
-		g.setContentView(R.layout.activity_game);
+		//g.setContentView(R.layout.activity_game);
+		g.setRenderView();
 	}
 
 	@Override
 	public void update(float deltaTime)
 	{
+		//logica
 	}
 
 	@Override
 	public void present(float deltaTime)
 	{
+		//repaint
 	}
 
 	@Override
