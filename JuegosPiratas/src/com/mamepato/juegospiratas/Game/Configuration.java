@@ -12,7 +12,7 @@ public class Configuration
 {
 	public static boolean soundEnabled = true;
 	public static int currentScore = 5;
-	public static int[] highScores = new int[] { 0, 0, 0, 0, 0 };
+	public static String[] highScores = new String[] { "", "", "", "", "" };
 	public static int[][] gameGrid;
 
 	static String var[] = new String[5];
@@ -93,7 +93,7 @@ public class Configuration
 			String[] s = a[1].split(",");
 			for (int i = 0; i < 5; i++)
 			{
-				highScores[i] = Integer.parseInt(s[i]);
+				highScores[i] = s[i];
 			}
 		}
 		catch (NumberFormatException e)

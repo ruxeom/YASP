@@ -12,8 +12,9 @@
     <string name="next">Next</string>
     <string name="menu">Menu</string>
     <string name="back">Back</string>
-    <string name="top10_high_scores">Top 10 high scores!</string>
+    <string name="top5_high_scores">Top 5 high scores!</string>
     <string name="title_activity_high_scores">HighScores</string>
     <string name="title_activity_game_screen">GameScreen</string>
+
 
 </resources>

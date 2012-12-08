@@ -3,6 +3,7 @@ package com.mamepato.juegospiratas.Game;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.mamepato.juegospiratas.framework.Game;
 import com.mamepato.juegospiratas.framework.Screen;
@@ -11,12 +12,22 @@ import com.mamepato.juegospiratas.framework.implementation.AndroidGame;
 public class HighScoresScreen extends Screen
 {
 	Button backButton;
+	TextView textViewHighScores;
+	String scores = "";
 
 	public HighScoresScreen(Game game)
 	{
 		super(game);
 		AndroidGame g = ((AndroidGame) game);
 		g.setContentView(R.layout.activity_high_scores);
+
+		textViewHighScores = (TextView) g.findViewById(R.id.textView);
+		for (int i = 0; i < Configuration.highScores.length; i++)
+		{
+			scores += (i + 1) + ")  " + Configuration.highScores[i].toString()
+					+ "\n";
+		}
+		textViewHighScores.setText(scores);
 		backButton = (Button) g.findViewById(R.id.buttonBack);
 		BackButton(backButton);
 	}
@@ -34,35 +45,25 @@ public class HighScoresScreen extends Screen
 	@Override
 	public void update(float deltaTime)
 	{
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public void present(float deltaTime)
 	{
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public void pause()
 	{
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public void resume()
 	{
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public void dispose()
 	{
-		// TODO Auto-generated method stub
-
 	}
 }
