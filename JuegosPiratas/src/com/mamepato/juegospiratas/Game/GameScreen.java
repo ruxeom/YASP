@@ -34,7 +34,7 @@ public class GameScreen extends Screen
 	public GameScreen(Game game) {
 		super(game);
 		elGame = ((AndroidGame) game);
-		//elGame.setRenderView();
+		elGame.setRenderView();
 		gameGrid = new Grid(8, 8);
 		gameGrid.populateGrid(5);
 		screenWidth = elGame.getGraphics().getWidth();

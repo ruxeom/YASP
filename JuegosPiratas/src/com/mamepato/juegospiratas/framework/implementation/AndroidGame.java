@@ -87,7 +87,6 @@ public class AndroidGame extends Activity implements Game
 
 	public Screen getStartScreen()
 	{
-		// TODO: Provide the first screen
 		return null;
 	}
 
