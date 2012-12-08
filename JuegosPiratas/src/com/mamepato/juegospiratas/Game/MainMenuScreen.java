@@ -22,6 +22,9 @@ public class MainMenuScreen extends Screen
 	{
 		super(game);
 		AndroidGame g = ((AndroidGame) game);
+		
+		new Assets(g);
+		
 		g.setContentView(R.layout.activity_main_menu);
 
 		playButton = (Button) g.findViewById(R.id.playButton);
