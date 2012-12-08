@@ -22,30 +22,23 @@ public class Assets
 	public static Pixmap pinkAndy;
 	public static Pixmap yellowAndy;
 	public static Sound breakAndroidSound;
-<<<<<<< HEAD
-	
-	public Assets(AndroidGame game) {
-		Resources r = game.getResources();
-		backGround = new AndroidPixmap(
-				BitmapFactory.decodeResource(r, R.drawable.green_background), PixmapFormat.RGB565);
-		blueAndy = new AndroidPixmap(
-				BitmapFactory.decodeResource(r, R.drawable.blue_andy), PixmapFormat.RGB565);
-		greenAndy = new AndroidPixmap(
-				BitmapFactory.decodeResource(r, R.drawable.green_andy), PixmapFormat.RGB565);
-		orangeAndy = new AndroidPixmap(
-				BitmapFactory.decodeResource(r, R.drawable.orange_andy), PixmapFormat.RGB565);
-		pinkAndy = new AndroidPixmap(
-				BitmapFactory.decodeResource(r, R.drawable.pink_andy), PixmapFormat.RGB565);
-		yellowAndy = new AndroidPixmap(
-				BitmapFactory.decodeResource(r, R.drawable.yellow_andy), PixmapFormat.RGB565);
-		breakAndroidSound = new AndroidSound(
-				new SoundPool(20, AudioManager.STREAM_MUSIC, 0), R.raw.bomb);
-=======
 
-	public Assets()
+	public Assets(AndroidGame game)
 	{
-		// backGround = new AndroidPixmap(BitmapFactory.decodeResource(
-		// getResources(), id), PixmapFormat.RGB565);
->>>>>>> Configuration class
+		Resources r = game.getResources();
+		backGround = new AndroidPixmap(BitmapFactory.decodeResource(r,
+				R.drawable.green_background), PixmapFormat.RGB565);
+		blueAndy = new AndroidPixmap(BitmapFactory.decodeResource(r,
+				R.drawable.blue_andy), PixmapFormat.RGB565);
+		greenAndy = new AndroidPixmap(BitmapFactory.decodeResource(r,
+				R.drawable.green_andy), PixmapFormat.RGB565);
+		orangeAndy = new AndroidPixmap(BitmapFactory.decodeResource(r,
+				R.drawable.orange_andy), PixmapFormat.RGB565);
+		pinkAndy = new AndroidPixmap(BitmapFactory.decodeResource(r,
+				R.drawable.pink_andy), PixmapFormat.RGB565);
+		yellowAndy = new AndroidPixmap(BitmapFactory.decodeResource(r,
+				R.drawable.yellow_andy), PixmapFormat.RGB565);
+		breakAndroidSound = new AndroidSound(new SoundPool(20,
+				AudioManager.STREAM_MUSIC, 0), R.raw.bomb);
 	}
 }
